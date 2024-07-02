@@ -1,0 +1,32 @@
+apiVersion: apiserver.config.k8s.io/v1beta1
+kind: AuthenticationConfiguration
+jwt:
+- issuer:
+    url: https://keycloak.dedalus/realms/dedalus
+    certificateAuthority: |
+      -----BEGIN CERTIFICATE-----
+      MIICoDCCAYgCCQDVRFO8Ylz0QDANBgkqhkiG9w0BAQsFADASMRAwDgYDVQQDDAdr
+      dWJlLWNhMB4XDTI0MDYxNTEwMzY0NVoXDTM0MDYxMzEwMzY0NVowEjEQMA4GA1UE
+      AwwHa3ViZS1jYTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALkMBJ4Q
+      uNOAlMV7q7Hm5a4DLXqxMX05Cdd3hh8tVqNamS7Xa2dC30f1uO7HIFwQ38E+g+sG
+      rgEfuEQISLVuw1KpThWP2dIxGLhxumXbyScf1imKs/1CwMZwAAhdx+c4uSFS6gB2
+      cQp2iLrNc6GGra025L854AMqcnRRc+ddQ2yjb1+fK8J01UWVTp0yAnfptw7CIbKa
+      7S2qyujBz4IT8JjEnq5rVtSE8MibozxL/RiaKXRgesxzbXwve7suVsc44m9JcxVF
+      fc7AieXqE5FgDC8Uwus+WAHwlWQj6P1WyrrHuOzcWBA/d3YG14ifkx8W3HzKF/PW
+      BvYnmmTWbGnNuNECAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAfhNwswLdQ7hKJafM
+      eeSMgy8kCXstkXPbN94HgRwFcsxDW1cV9m354koh3y2N8yo76Qxw3am+e4H0zQfT
+      vXPN8JY/mrqj5IkDjgQa9Hb1bOuNp6xtIvSAa6LjMnyWRDBSOrNZodnPVNS9gAf1
+      O0LWzKMxR9qBl/nEVRWq/ZFDKYIHSQ8GDNO89/x+NHsZFT7cbEyrtqmxV/aYk+qH
+      RvwMLtId9r3Y4E1T8FKrx4L1VBRbDZnngxogxJH+7xZKF9/TQwYkmMDQGDGLLT+Q
+      ajrmulr09SXVSXcL/e867gI6AqNMvj9rwPlbdVIbPwccqMk+vPjpU+eDfjUgw18+
+      PGtdgA==
+      -----END CERTIFICATE-----
+    audiences:
+    - kubeapps
+  claimMappings:
+    username:
+      claim: "email"
+      prefix: ""
+    groups:
+      claim: "groups"
+      prefix: ""

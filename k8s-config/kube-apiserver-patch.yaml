@@ -1,0 +1,9 @@
+    volumeMounts:
+    - mountPath: /oidc-config/k8s-authenticationConfig.yaml
+      name: oidc-config
+      readOnly: true
+  
+  volumes:
+  - hostPath:
+      path: /etc/kubernetes/manifests/k8s-authenticationConfig.yaml
+    name: oidc-config

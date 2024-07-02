@@ -1,0 +1,27 @@
+auth:
+  createAdminUser: true
+  adminUser: admin
+  adminPassword: admin
+  managementUser: manager
+  managementPassword: manager
+proxy: "edge"
+extraEnvVars:
+- name: KEYCLOAK_FRONTEND_URL
+  value: "https://keycloak.dedalus/auth"
+ingress:
+  enabled: true
+  ingressClassName: "nginx"
+  hostname: keycloak.dedalus
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/proxy-body-size: "10m"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+  tls: true
+  extraTls:
+  - hosts:
+    - keycloak.dedalus
+    secretName: keycloak.dedalus-tls
+postgresql:
+  enabled: true
+  
