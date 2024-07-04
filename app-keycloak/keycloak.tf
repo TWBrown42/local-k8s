@@ -30,8 +30,6 @@ resource "keycloak_realm" "dedalus_realm" {
   display_name      = "Dedalus"
   display_name_html = "<b>Dedalus</b>"
 
-  login_theme = "base"
-
   access_code_lifespan = "1h"
 
   ssl_required    = "external"
