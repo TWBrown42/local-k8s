@@ -23,6 +23,7 @@ jwt:
       -----END CERTIFICATE-----
     audiences:
     - kubeapps
+    - kubedash
   claimMappings:
     username:
       claim: "email"
